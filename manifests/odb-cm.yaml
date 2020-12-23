@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: odbxe-config
+  namespace: odbpoc
+data:
+  ORACLE_CHARACTERSET: AL32UTF8
