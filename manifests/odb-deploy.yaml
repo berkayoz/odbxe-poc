@@ -16,7 +16,9 @@ spec:
         app: odbxe
     spec:
       containers:
-      - env:
+      - command:
+        - /opt/oracle/runOracle.sh
+      env:
         - name: ORACLE_PWD
           valueFrom:
           secretKeyRef:
@@ -38,6 +40,8 @@ spec:
         volumeMounts:
         - mountPath: /opt/oracle/oradata
           name: odbxe-poc-data
+        securityContext:
+          fsGroup: 54321
       volumes:
       - name: odbxe-poc-data
         persistentVolumeClaim:
